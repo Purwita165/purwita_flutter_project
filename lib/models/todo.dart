@@ -1,35 +1,35 @@
-// 01
 class Todo {
-  final int? id;
-  final String title;
-  final String description;
-  final bool isDone;
+  int? id;
+  String description;
+  String? ref;
+  int priority; // 1=Low, 2=Moderate, 3=High
+  int isDone;   // 0=false, 1=true
 
-  // 02
   Todo({
     this.id,
-    required this.title,
     required this.description,
-    this.isDone = false,
+    this.ref,
+    required this.priority,
+    required this.isDone,
   });
 
-  // 03
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'title': title,
       'description': description,
-      'isDone': isDone ? 1 : 0,
+      'ref': ref,
+      'priority': priority,
+      'isDone': isDone,
     };
   }
 
-  // 04
   factory Todo.fromMap(Map<String, dynamic> map) {
     return Todo(
       id: map['id'],
-      title: map['title'],
       description: map['description'],
-      isDone: map['isDone'] == 1,
+      ref: map['ref'],
+      priority: map['priority'],
+      isDone: map['isDone'],
     );
   }
 }

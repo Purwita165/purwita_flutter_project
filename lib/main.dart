@@ -1,21 +1,24 @@
-// 01
 import 'package:flutter/material.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
 import 'pages/todo_page.dart';
 
-// 02
 void main() {
+  // ⬇️ WAJIB UNTUK WINDOWS / DESKTOP
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
+
   runApp(const MyApp());
 }
 
-// 03
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const TodoPage(),
+      home: TodoPage(),
     );
   }
 }
